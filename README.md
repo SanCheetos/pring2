@@ -1,3 +1,3 @@
 # Команда
 - Третьяк Александр: SanCheetos
-- Сбродов Станислав: HulaHoopoe
+- Сбродов Станислав: HulaHoopoe (hoopoe)
