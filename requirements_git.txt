@@ -1,0 +1,8 @@
+tensorflow
+matplotlib
+kagglehub
+pillow
+python-multipart
+fastapi
+#io
+pytest
