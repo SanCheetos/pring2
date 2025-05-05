@@ -7,9 +7,9 @@ from tensorflow.keras.applications.resnet50 import preprocess_input
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 from PIL import Image
-# from typing import Annotated
-# from fastapi import FastAPI, File, UploadFile
-# from io import BytesIO
+from typing import Annotated
+from fastapi import FastAPI, File, UploadFile
+from io import BytesIO
 
 from myModel import check_faces_similarity
 
@@ -43,18 +43,19 @@ if (uploaded_files1 or uploaded_files2):
                 uploaded_files2
             )
         }")
-# app = FastAPI()
-# @app.post("/files/")
-# async def create_file(file1: Annotated[UploadFile, File(...)],
-# file2: Annotated[UploadFile, File(...)]):
-#     uFile1 = await file1.read()
-#     uFile2 = await file2.read()
-#     return {"distance": check_faces_similarity(BytesIO(uFile1),
-# BytesIO(uFile2))}
 
-# @app.get("/")
-# async def root():
-#     return {"message": "Hello World"}
-# from tests import test_models
-# model_tests.similarImg()
-# model_tests.noImage()
+app = FastAPI()
+@app.post("/files/")
+async def create_file(file1: Annotated[UploadFile, File(...)],
+file2: Annotated[UploadFile, File(...)]):
+    uFile1 = await file1.read()
+    uFile2 = await file2.read()
+    return {"distance": check_faces_similarity(BytesIO(uFile1),
+BytesIO(uFile2))}
+
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
+from tests import test_models
+model_tests.similarImg()
+model_tests.noImage()
